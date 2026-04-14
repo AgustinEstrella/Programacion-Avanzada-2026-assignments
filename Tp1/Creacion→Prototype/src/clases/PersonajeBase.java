@@ -3,6 +3,9 @@
 import interfaces.Prototipo;
 
 import java.util.List ;
+
+import enums.Habilidades;
+
 import java.util.Collections;
 //explico el uso de Collections en linea 46
 
@@ -10,9 +13,9 @@ public class PersonajeBase implements Prototipo<PersonajeBase> {
 
     private String nombre;
     private int vida;
-    private List<String> habilidades;
+    private List<Habilidades> habilidades;
 
-    public PersonajeBase(String nombre, int vida, List<String> habilidades){
+    public PersonajeBase(String nombre, int vida, List<Habilidades> habilidades){
         this.nombre = nombre;
         this.vida = vida;
         this.habilidades = habilidades;
@@ -43,7 +46,7 @@ public class PersonajeBase implements Prototipo<PersonajeBase> {
         } while (vida < 1 || vida > 100);
      }
 
-     public List<String> getHabilidades(){
+     public List<Habilidades> getHabilidades(){
         //uso collections para poder mostrar el List como una estructura inmodificable
         //para evitar llamados como getHabilidades.add(""), lo cual rompe integridad y seguridad
         return Collections.unmodifiableList(habilidades);

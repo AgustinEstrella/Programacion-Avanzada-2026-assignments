@@ -1,15 +1,16 @@
 package clases;
 
+import enums.Elementos;
+import enums.Habilidades;
+
 import java.util.List;
 
 public class Mago extends PersonajeBase {
 
     private int mana;
-    private String elemento;
+    private Elementos elemento;
 
-    //Pendiente incluir uso de enums para seleccion de elemento
-
-    public Mago (String nombre, int vida, List<String> habilidades, int mana, String elemento){
+    public Mago (String nombre, int vida, List<Habilidades> habilidades, int mana, Elementos elemento){
         super(nombre, vida, habilidades);
         this.mana = mana;
         this.elemento = elemento;
@@ -24,6 +25,11 @@ public class Mago extends PersonajeBase {
     @Override
     public Mago clonar(){
         return new Mago(this);
+    }
+
+    @Override
+    public String toString(){
+        return super.toString() + "Mana: " +mana + " Elemento: " +elemento;
     }
     
 }
