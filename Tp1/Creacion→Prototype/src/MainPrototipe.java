@@ -5,9 +5,9 @@ import java.util.Scanner;
 import clases.*;
 import enums.*;
 
-public class Main {
+public class MainPrototipe {
     public static void main(String[] args){
-        Main metodos = new Main();
+        MainPrototipe metodos = new MainPrototipe();
 
         Scanner sc = new Scanner(System.in);
         
@@ -39,7 +39,7 @@ public class Main {
                     PersonajeBase barbaroBase = metodos.creacionBarbaro(sc);
                     List<PersonajeBase> clonesGenerados2 = metodos.generarClones(barbaroBase, cant);
                     metodos.mostrarEjercito(sc, clonesGenerados2);
-                    
+                    break;  
             }
         
     }

@@ -32,6 +32,11 @@ public class PersonajeBase implements Prototipo<PersonajeBase> {
         return new PersonajeBase(this);
      }
 
+     @Override
+     public String toString(){
+         return "Nombre: " +nombre + ". Vida: " +vida + ". Habilidades: (" +habilidades +")";
+     }
+
      public String getNombre(){
         return nombre;
      }
