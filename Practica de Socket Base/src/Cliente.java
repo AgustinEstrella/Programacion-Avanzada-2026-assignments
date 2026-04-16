@@ -9,7 +9,7 @@ public class Cliente {
         
         Scanner ingreso = new Scanner(System.in);
 
-        final String HOST = "10.0.0.102";
+        final String HOST = "172.17.2.125";
         final int PUERTO = 6000;
 
         //Variable de entrada de datos
@@ -28,12 +28,25 @@ public class Cliente {
             //Inicializacion salida de datos
             out = new DataOutputStream(sc.getOutputStream());
 
-            System.out.println("Bienvenido! Ingrese su formula");
+            String ingresoNombre = in.readUTF();
+            System.out.println(ingresoNombre);
+
+            String nombre = ingreso.nextLine();
+            out.writeUTF(nombre);
+            
+            ClienteHilo hilo = new ClienteHilo(in, out);
+            hilo.start();
+            hilo.join(); 
+
+            
+            System.out.println("Ingrese su formula");
             String miFormula = ingreso.nextLine();
             out.writeUTF(miFormula);
 
             String mensaje = in.readUTF();
             System.out.println(mensaje);
+
+            
 
             sc.close();
 

@@ -15,12 +15,6 @@ public class Servidor {
         
         ServerSocket servidor = null;
         Socket miSocket = null;
-        
-        //Variable de entrada de datos
-        DataInputStream in;
-
-        //Variable de salida de datos
-        DataOutputStream out;
 
         final int PUERTO = 6000;
         
@@ -33,17 +27,27 @@ public class Servidor {
                 boolean conectado = true;
                 while (conectado) {
                     miSocket = servidor.accept();
-                    System.out.println("Cliente conectado");
 
+                    //A partir de aca implementamos hilos
+                    DataInputStream in = new DataInputStream(miSocket.getInputStream());
+                    DataOutputStream out = new DataOutputStream(miSocket.getOutputStream());
+
+                    out.writeUTF("Escribe tu nombre");
+                    
+                    String nombreCliente = in.readUTF();    
+ 
+                    ServidorHilo hilo = new ServidorHilo(in, out, nombreCliente);
+                    hilo.start();
+
+                    System.out.println("Creada la conexion con el cliente" +nombreCliente);
+
+                    //Fin hilos
                     System.out.println("Esperando instrucciones del cliente");
-
-                    //Inicializacion entrada de datos
-                    in = new DataInputStream(miSocket.getInputStream());
-                    //Inicializacion salida de datos
-                    out = new DataOutputStream(miSocket.getOutputStream());
 
                     //Lee el mensaje enviado por el cliente
                     String mensaje = in.readUTF();
+
+
 
                     if (mensaje.trim().equalsIgnoreCase("SALIR")) {
                         System.out.println("Petición de desconexión del cliente");
