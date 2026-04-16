@@ -1,37 +1,7 @@
-# Archivos compilados de Java
-**/*.class
-**/bin/
-**/out/
-**/target/
-
-# Configuraciones locales del editor
-**/.vscode/
-
-### IntelliJ IDEA ###
-**/.idea/
-**/*.iml
-**/out/
-!**/src/main/**/out/
-!**/src/test/**/out/
-.kotlin
-
-### Eclipse ###
-**/.apt_generated
-**/.classpath
-**/.factorypath
-**/.project
-**/.settings
-**/.springBeans
-**/.sts4-cache
-!**/src/main/**/bin/
-!**/src/test/**/bin/
-
-### NetBeans ###
-**/nbproject/private/
-**/nbbuild/
-**/dist/
-**/nbdist/
-**/.nb-gradle/
-
-### Mac OS ###
-**/.DS_Store    
+# Solo ignorar lo pesado y lo compilado
+target/
+bin/
+out/
+*.class
+.idea/
+.vscode/
