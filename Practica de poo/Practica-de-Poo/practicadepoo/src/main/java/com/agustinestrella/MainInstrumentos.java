@@ -8,9 +8,9 @@ import com.clases.bateria;
 import com.clases.guitarra;
 import com.clases.instrumento;
 
-public class Main {
+public class MainInstrumentos {
     public static void main(String[] args) {
-        Main fueraStatic = new Main();
+        MainInstrumentos fueraStatic = new MainInstrumentos();
 
         Scanner sc = new Scanner(System.in);
         ArrayList<instrumento> listaInstrumentos = new ArrayList<>();

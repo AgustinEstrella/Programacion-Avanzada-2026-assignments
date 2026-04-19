@@ -32,22 +32,21 @@ public class Servidor {
                     DataInputStream in = new DataInputStream(miSocket.getInputStream());
                     DataOutputStream out = new DataOutputStream(miSocket.getOutputStream());
 
-                    out.writeUTF("Escribe tu nombre");
-                    
-                    String nombreCliente = in.readUTF();    
- 
+                    //Mensaje que le envia el servidor al cliente
+                    out.writeUTF("Escribe tu nombre");  
+                    String nombreCliente = in.readUTF();
+
                     ServidorHilo hilo = new ServidorHilo(in, out, nombreCliente);
                     hilo.start();
 
-                    System.out.println("Creada la conexion con el cliente" +nombreCliente);
-
-                    //Fin hilos
+                    System.out.println("Creada la conexion con el cliente: " +nombreCliente);
+                    //---------------------------------------------------------------------//
+                    
+    
                     System.out.println("Esperando instrucciones del cliente");
 
                     //Lee el mensaje enviado por el cliente
                     String mensaje = in.readUTF();
-
-
 
                     if (mensaje.trim().equalsIgnoreCase("SALIR")) {
                         System.out.println("Petición de desconexión del cliente");

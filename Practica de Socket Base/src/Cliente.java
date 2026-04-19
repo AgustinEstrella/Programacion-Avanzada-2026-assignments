@@ -7,9 +7,9 @@ import java.util.Scanner;
 public class Cliente {
     public static void main(String[] args) throws Exception {
         
-        Scanner ingreso = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
 
-        final String HOST = "172.17.2.125";
+        final String HOST = "172.16.0.2";
         final int PUERTO = 6000;
 
         //Variable de entrada de datos
@@ -28,27 +28,20 @@ public class Cliente {
             //Inicializacion salida de datos
             out = new DataOutputStream(sc.getOutputStream());
 
-            String ingresoNombre = in.readUTF();
-            System.out.println(ingresoNombre);
+            //Mostramos el mensaje que nos manda el servidor
+            String bienvenida = in.readUTF();
+            System.out.println(bienvenida);
 
-            String nombre = ingreso.nextLine();
+            //Le mandamos al servidor el nombre
+            String nombre = input.nextLine();
             out.writeUTF(nombre);
-            
+
+            //Creamos el hilo
             ClienteHilo hilo = new ClienteHilo(in, out);
             hilo.start();
             hilo.join(); 
-
-            
-            System.out.println("Ingrese su formula");
-            String miFormula = ingreso.nextLine();
-            out.writeUTF(miFormula);
-
-            String mensaje = in.readUTF();
-            System.out.println(mensaje);
-
-            
-
-            sc.close();
+        
+            //sc.close();
 
         } catch (IOException e) {
         // TODO Auto-generated catch block
