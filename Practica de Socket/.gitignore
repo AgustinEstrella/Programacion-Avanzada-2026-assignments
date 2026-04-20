@@ -1,0 +1,7 @@
+# Solo ignorar lo pesado y lo compilado
+target/
+bin/
+out/
+*.class
+.idea/
+.vscode/
