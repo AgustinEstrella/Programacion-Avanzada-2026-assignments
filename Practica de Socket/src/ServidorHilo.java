@@ -90,6 +90,7 @@ public class ServidorHilo extends Thread {
 
         for (ServidorHilo c : Servidor.clientes) {
             c.out.writeUTF(nombreCliente + ": " + mensaje);
+            c.out.flush();
         }
     }
 

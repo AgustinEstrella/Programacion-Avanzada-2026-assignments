@@ -18,9 +18,25 @@ public class ClienteHilo extends Thread {
 
         boolean salir = false;
 
+        Thread hiloEscucha = new Thread(() -> {
+            try {
+                while (true) {
+                    String mensajeServidor = in.readUTF();
+                    System.out.println("\n[Servidor/Chat] -> " + mensajeServidor);
+                }
+            } catch (IOException e) {
+                System.out.println("\nDesconectado del servidor.");
+            }
+        });
+        hiloEscucha.start();
+
+
         while (!salir) {
 
             try {
+
+                Thread.sleep(100);
+
                 // Menú de opciones
                 System.out.println("\n1: Hora");
                 System.out.println("2: Resolver operación");
@@ -36,7 +52,7 @@ public class ClienteHilo extends Thread {
                 switch (opcion) {
 
                     case 1:
-                        System.out.println("Hora: " + in.readUTF());
+                        //System.out.println("Hora: " + in.readUTF());
                         break;
 
                     case 2:
@@ -44,23 +60,32 @@ public class ClienteHilo extends Thread {
                         String op = sc.nextLine();
                         out.writeUTF(op);
                         System.out.println(in.readUTF());
+                        out.flush();
                         break;
 
                     case 3:
-                        System.out.println(in.readUTF());
+                        //System.out.println(in.readUTF());
                         break;
 
                     case 4:
                         System.out.println("Mensaje:");
                         String msg = sc.nextLine();
                         out.writeUTF(msg);
+                        out.flush();
+                        break;
+
+                    default:
+                        System.out.println("Opción no válida.");
                         break;
                 }
 
             } catch (IOException e) {
                 e.printStackTrace();
                 salir = true;
+            } catch (InterruptedException e){
+                System.out.println("Hilo principal interrumpido");
             }
         }
+        sc.close();
     }
 }

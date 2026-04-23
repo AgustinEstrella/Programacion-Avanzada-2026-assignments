@@ -1,0 +1,99 @@
+[33mcommit 7b14b083fc0d40b365b2a113238af9abfffa9792[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m)[m
+Merge: ce88c13 8438eee
+Author: Agustin Estrella <agustin.j.estrella@gmail.com>
+Date:   Mon Apr 20 20:49:13 2026 -0300
+
+    Merge commit '8438eee69773feb90070999ff4029c2ddb3684c9' as 'Practica de Socket'
+
+[33mcommit 8438eee69773feb90070999ff4029c2ddb3684c9[m
+Author: Agustin Estrella <agustin.j.estrella@gmail.com>
+Date:   Mon Apr 20 20:49:13 2026 -0300
+
+    Squashed 'Practica de Socket/' content from commit 476ab4d
+    
+    git-subtree-dir: Practica de Socket
+    git-subtree-split: 476ab4d3aa8aa74a8337e478e83584cb4d4c8b21
+
+[33mcommit ce88c13c79b4dae7f44962177a76b4070cc9b192[m
+Author: Agustin Estrella <agustin.j.estrella@gmail.com>
+Date:   Mon Apr 20 20:49:05 2026 -0300
+
+    Limpieza de carpeta para vinculación de subtree
+
+[33mcommit fcac69558569cc6b6c23bedf331fadb9e60f95cb[m
+Author: Agustin Estrella <agustin.j.estrella@gmail.com>
+Date:   Mon Apr 20 16:03:50 2026 -0300
+
+    Renombro carpeta de sockets
+
+[33mcommit 414e935fad3193f872a4b6061008b581c3e44970[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Agustin Estrella <agustin.j.estrella@gmail.com>
+Date:   Sun Apr 19 20:47:08 2026 -0300
+
+    Agregue las opciones 1 y 2 del menu
+
+[33mcommit 4b6a9817626edd7b303694a3b3b7d85da63e526f[m
+Author: Agustin Estrella notebook <agustin.j.estrella@gmail.com>
+Date:   Thu Apr 16 19:22:47 2026 -0300
+
+    Agregue las bases de hilos
+
+[33mcommit a866fff8f811df0e0ff24514ca7e134a74f6a9b9[m
+Author: Agustin Estrella notebook <agustin.j.estrella@gmail.com>
+Date:   Thu Apr 16 16:49:04 2026 -0300
+
+    Sincronizacion total de archivos Java
+
+[33mcommit 428e3239ff53eb84358aa43507085120c5f82dae[m
+Author: Agustin Estrella notebook <agustin.j.estrella@gmail.com>
+Date:   Thu Apr 16 16:48:22 2026 -0300
+
+    Carga de código fuente (.java) corregida
+
+[33mcommit c470f1c33926b8ca0a9db941373dcec1c715d8a0[m
+Author: Agustin Estrella notebook <agustin.j.estrella@gmail.com>
+Date:   Thu Apr 16 16:47:34 2026 -0300
+
+    Intento de arreaglo
+
+[33mcommit f2a7944f2c821038b4fe15c2df583f302f70b453[m
+Author: Agustin Estrella <agustin.j.estrella@gmail.com>
+Date:   Wed Apr 15 14:01:44 2026 -0300
+
+    Inclui el ejercicio de socket, no entiendo nada, muy poca informacion de parte de los profesores y se evalua un tema nuevo y poco explicado, videos desactualizados
+
+[33mcommit ce8c5b7792af3624f4b4644065e1e9d2aea7a5d0[m
+Author: Agustin Estrella <agustin.j.estrella@gmail.com>
+Date:   Tue Apr 14 19:14:55 2026 -0300
+
+    Primer intento de socket, no entiendo nada
+
+[33mcommit eac4e8eb27801df79f071640e4809ee07422b238[m
+Author: Agustin Estrella <agustin.j.estrella@gmail.com>
+Date:   Tue Apr 14 15:00:30 2026 -0300
+
+    Agregue el patron de comportamiento Template Method
+
+[33mcommit cd64d894183e4e042117064a45238d3c4301e8dd[m
+Author: Agustin Estrella <agustin.j.estrella@gmail.com>
+Date:   Tue Apr 14 12:44:21 2026 -0300
+
+    Agregue el ejercicio de patron de estructura <Facade>
+
+[33mcommit d8474f6ad04261f204d6d58b880ce84b37e2fd8f[m
+Author: Agustin Estrella <agustin.j.estrella@gmail.com>
+Date:   Mon Apr 13 23:20:39 2026 -0300
+
+    Termine las clses hijo y herencia, complete la interfaz, arme los enum y termine
+
+[33mcommit b76bb1ff7bc27b10548a2109d4339525c4715ae0[m
+Author: Agus <agustin.j.estrella@gmail.com>
+Date:   Mon Apr 13 14:40:43 2026 -0300
+
+    Finalize la clase padre principal , empece con clase hija Mago
+
+[33mcommit d2bf4bd849e5989cae5efabfa6ea2d8f00f63d86[m
+Author: Agus <agustin.j.estrella@gmail.com>
+Date:   Mon Apr 13 10:32:16 2026 -0300
+
+    Commit base, comenze el trabajo de arquitecturas aplicando Prototype
