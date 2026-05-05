@@ -3,7 +3,7 @@ import java.awt.*;
 import java.io.*;
 import java.net.Socket;
 
-public class ChatClienteSwing extends JFrame {
+public class  ChatClienteSwing extends JFrame {
 
     private JTextArea historial;
     private JTextField input;
