@@ -1,4 +1,4 @@
-package com.mycompany.solidplataformaeduvirtual;
+package com.mycompany.solidplataformaeduvirtual.Evaluaciones;
 // Tipo de evaluación: Examen
 public class Examen implements Evaluacion{
     @Override

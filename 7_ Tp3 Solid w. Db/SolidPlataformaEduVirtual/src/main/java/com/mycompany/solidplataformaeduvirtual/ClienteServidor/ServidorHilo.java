@@ -1,4 +1,10 @@
-package com.mycompany.solidplataformaeduvirtual;
+package com.mycompany.solidplataformaeduvirtual.ClienteServidor;
+
+import com.mycompany.solidplataformaeduvirtual.*;
+import com.mycompany.solidplataformaeduvirtual.Evaluaciones.Evaluacion;
+import com.mycompany.solidplataformaeduvirtual.Evaluaciones.Examen;
+import com.mycompany.solidplataformaeduvirtual.Evaluaciones.ProyectoFinal;
+import com.mycompany.solidplataformaeduvirtual.Evaluaciones.TrabajoPractico;
 
 import java.io.*;
 import java.net.Socket;

@@ -29,23 +29,32 @@ public class EstudianteBd {
         }
     }
 
-    public void listar() {
+    public String listar() {
+        StringBuilder sb = new StringBuilder();
         String sql = "SELECT * FROM estudiantes";
 
         try (Connection conn = conexionBd.getConnection();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
 
-            System.out.println("\n--- Lista de Estudiantes ---");
             while (rs.next()) {
                 int id = rs.getInt("id");
                 String nombre = rs.getString("nombre");
                 String email = rs.getString("email");
-                System.out.println("ID: " + id + " | Nombre: " + nombre + " | Email: " + email);
+                sb.append("ID: ").append(id)
+                        .append(" | Nombre: ").append(nombre)
+                        .append(" | Email: ").append(email).append("\n");
             }
 
         } catch (SQLException e) {
-            System.err.println("Error al listar estudiantes: " + e.getMessage());
+            return "Error al listar estudiantes: " + e.getMessage();
         }
+
+        if (sb.length() == 0) {
+            return "No hay estudiantes registrados.";
+        }
+
+        return sb.toString();
     }
+
 }

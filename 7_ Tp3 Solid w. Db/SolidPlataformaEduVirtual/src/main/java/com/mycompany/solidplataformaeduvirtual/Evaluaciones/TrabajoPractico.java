@@ -1,4 +1,4 @@
-package com.mycompany.solidplataformaeduvirtual;
+package com.mycompany.solidplataformaeduvirtual.Evaluaciones;
 // Tipo de evaluación: Trabajo Práctico
 public class TrabajoPractico implements Evaluacion{
      @Override

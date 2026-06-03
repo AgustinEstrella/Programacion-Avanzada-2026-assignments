@@ -1,37 +1,29 @@
-package com.mycompany.solidplataformaeduvirtual;
+package com.mycompany.solidplataformaeduvirtual.ClienteServidor;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import java.net.Socket;
 
 public class Cliente {
     public static void main(String[] args) {
 
         try {
-            Socket socket =
-                    new Socket("localhost", 5000);
+            Socket socket = new Socket("localhost", 5000);
+            System.out.println("Conectado al servidor exitosamente.");
 
-            PrintWriter salida =
-                    new PrintWriter(
-                            socket.getOutputStream(), true);
+            DataInputStream in = new DataInputStream(socket.getInputStream());
+            DataOutputStream out = new DataOutputStream(socket.getOutputStream());
 
-            BufferedReader entrada =
-                    new BufferedReader(
-                            new InputStreamReader(
-                                    socket.getInputStream()
-                            )
-                    );
+            ClienteHilo clienteHilo = new ClienteHilo(in, out);
+            clienteHilo.start();
 
-            salida.println("Hola servidor");
-
-            System.out.println(entrada.readLine());
+            clienteHilo.join();
 
             socket.close();
+            System.out.println("Conexión finalizada.");
 
         } catch(Exception e){
-            e.printStackTrace();
+            System.err.println("Error al conectar con el servidor: " + e.getMessage());
         }
     }
-    
 }

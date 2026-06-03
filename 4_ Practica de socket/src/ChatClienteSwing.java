@@ -3,6 +3,7 @@ import java.awt.*;
 import java.io.*;
 import java.net.Socket;
 
+
 public class  ChatClienteSwing extends JFrame {
 
     private JTextArea historial;
@@ -52,13 +53,13 @@ public class  ChatClienteSwing extends JFrame {
 
         JButton btnHora = new JButton("Hora");
         JButton btnResolver = new JButton("Resolver");
-        JButton btnClientes = new JButton("Ver Clientes");
         JButton btnEnviar = new JButton("Enviar");
+        JButton btnNuevoCliente = new JButton("Nuevo Cliente");
 
         panelBotones.add(btnHora);
         panelBotones.add(btnResolver);
-        panelBotones.add(btnClientes);
         panelBotones.add(btnEnviar);
+        panelBotones.add(btnNuevoCliente);
 
         add(panelBotones, BorderLayout.SOUTH);
 
@@ -67,6 +68,15 @@ public class  ChatClienteSwing extends JFrame {
         // EVENTOS
         btnEnviar.addActionListener(e -> enviarMensaje());
         input.addActionListener(e -> enviarMensaje());
+
+        btnNuevoCliente.addActionListener(e -> {
+            SwingUtilities.invokeLater(() -> {
+                ChatClienteSwing nuevaVentana = new ChatClienteSwing();
+                // Opcional: Desplazar la nueva ventana un poco para que no se superponga exactamente
+                nuevaVentana.setLocation(this.getX() + 30, this.getY() + 30);
+                nuevaVentana.setVisible(true);
+            });
+        });
 
         btnHora.addActionListener(e -> {
             try { out.writeInt(1); } catch (Exception ex) {}
@@ -80,10 +90,18 @@ public class  ChatClienteSwing extends JFrame {
             } catch (Exception ex) {}
         });
 
-        btnClientes.addActionListener(e -> {
-            try { out.writeInt(3); } catch (Exception ex) {}
+        Timer timerClientes = new Timer(1000, evento -> {
+            try {
+                // Si la conexión está activa, pide la lista al servidor (comando 3)
+                if (out != null) {
+                    out.writeInt(3);
+                }
+            } catch (Exception ex) {
+            }
         });
+        timerClientes.start();
     }
+
 
     private void conectar() {
         try {

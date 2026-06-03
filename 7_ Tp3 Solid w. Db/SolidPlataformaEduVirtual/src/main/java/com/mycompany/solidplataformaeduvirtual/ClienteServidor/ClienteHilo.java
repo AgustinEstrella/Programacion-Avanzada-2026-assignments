@@ -1,4 +1,4 @@
-package com.mycompany.solidplataformaeduvirtual;
+package com.mycompany.solidplataformaeduvirtual.ClienteServidor;
 
 import java.io.*;
 import java.util.Scanner;
