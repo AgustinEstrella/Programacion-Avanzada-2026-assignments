@@ -55,22 +55,34 @@ public class ServidorHilo extends Thread {
                         break;
 
                     case 3:
-                        int tipo = in.readInt();
-                        double nota = in.readDouble();
+                          int tipo = in.readInt();
 
-                        Evaluacion evaluacion;
+                          int cantidadNotas = in.readInt();
 
-                        if (tipo == 1) {
-                            evaluacion = new Examen();
-                        } else if (tipo == 2) {
-                            evaluacion = new TrabajoPractico();
-                        } else {
-                            evaluacion = new ProyectoFinal();
-                        }
+                          double[] notas = new double[cantidadNotas];
 
-                        double resultado = evaluacion.calcularNotaFinal(nota);
-                        out.writeDouble(resultado);
-                        break;
+                          for (int i = 0; i < cantidadNotas; i++) {
+
+                              notas[i] = in.readDouble();
+                            }
+
+                          Evaluacion evaluacion;
+
+                          if (tipo == 1) {
+                              evaluacion = new Examen();
+                         } else if (tipo == 2) {
+                             evaluacion = new TrabajoPractico();
+                          } else {
+                             evaluacion = new ProyectoFinal();
+                            }
+
+    double resultado =
+            evaluacion.calcularNotaFinal(notas);
+
+    out.writeDouble(resultado);
+
+    break;
+          
 
                     default:
                         out.writeUTF("Opción inválida");

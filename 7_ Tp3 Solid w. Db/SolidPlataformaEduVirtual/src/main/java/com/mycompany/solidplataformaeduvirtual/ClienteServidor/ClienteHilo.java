@@ -23,7 +23,7 @@ public class ClienteHilo extends Thread {
                 System.out.println("\n===== PLATAFORMA EDUCATIVA =====");
                 System.out.println("1. Registrar estudiante");
                 System.out.println("2. Listar estudiantes");
-                System.out.println("3. Calcular nota");
+                System.out.println("3. Calcular promedio");
                 System.out.println("0. Salir");
                 System.out.print("Opcion: ");
 
@@ -52,15 +52,35 @@ public class ClienteHilo extends Thread {
 
                     case 3:
                         System.out.println("\nTIPO DE EVALUACION");
-                        System.out.println("1. Examen | 2. Trabajo Practico | 3. Proyecto Final");
-                        out.writeInt(sc.nextInt());
+                        System.out.println("1. Examen");
+                        System.out.println("2. Trabajo Practico");
+                        System.out.println("3. Proyecto Final");
 
-                        System.out.print("Nota: ");
-                        out.writeDouble(sc.nextDouble());
+                        int tipo = sc.nextInt();
 
-                        // Leer resultado calculado por el servidor
-                        System.out.println("Servidor - Nota final: " + in.readDouble());
-                        break;
+                        out.writeInt(tipo);
+
+                        System.out.print("Cantidad de notas: ");
+
+                       int cantidad = sc.nextInt();
+
+                       out.writeInt(cantidad);
+
+                       for (int i = 0; i < cantidad; i++) {
+
+                         System.out.print("Nota " + (i + 1) + ": ");
+
+                         double nota = sc.nextDouble();
+
+                         out.writeDouble(nota);
+                        }
+
+                       System.out.println(
+                         "Servidor - Promedio: "
+                         + in.readDouble()
+                      );
+
+                       break;
 
                     case 0:
                         System.out.println("Desconectando del servidor...");
