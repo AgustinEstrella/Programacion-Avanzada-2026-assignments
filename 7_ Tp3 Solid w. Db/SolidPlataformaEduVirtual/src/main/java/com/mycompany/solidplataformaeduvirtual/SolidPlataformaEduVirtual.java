@@ -36,19 +36,16 @@ public class SolidPlataformaEduVirtual {
                     String email = sc.nextLine();
 
                     // Crea el estudiante
-                    Estudiante estudiante =
-                            new Estudiante(nombre, email);
+                    Estudiante estudiante = new Estudiante(nombre, email);
 
                     // Lo guarda en MySQL
                     estudianteBd.guardar(estudiante);
-
                     break;
 
                 case 2:
 
                     // Muestra todos los estudiantes
                     estudianteBd.listar();
-
                     break;
 
                 case 3:
@@ -58,37 +55,25 @@ public class SolidPlataformaEduVirtual {
                     System.out.println("1. Examen");
                     System.out.println("2. Trabajo Practico");
                     System.out.println("3. Proyecto Final");
-
                     int tipo = sc.nextInt();
 
                     System.out.print("Nota: ");
-
                     double nota = sc.nextDouble();
 
                     // Gracias a OCP podemos usar distintos tipos
                     Evaluacion evaluacion;
 
                     if (tipo == 1) {
-
                         evaluacion = new Examen();
-
                     } else if (tipo == 2) {
-
                         evaluacion = new TrabajoPractico();
-
                     } else {
-
                         evaluacion = new ProyectoFinal();
                     }
 
-                    double resultado =
-                            evaluacion.calcularNotaFinal(nota);
+                    double resultado = evaluacion.calcularNotaFinal(nota);
 
-                    System.out.println(
-                            "Nota final: "
-                            + resultado
-                    );
-
+                    System.out.println("Nota final: " + resultado);
                     break;
 
                 case 0:
@@ -108,5 +93,3 @@ public class SolidPlataformaEduVirtual {
     }
     
 }
-    
-

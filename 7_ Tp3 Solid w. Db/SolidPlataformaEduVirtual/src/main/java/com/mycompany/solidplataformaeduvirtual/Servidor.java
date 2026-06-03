@@ -7,23 +7,17 @@ public class Servidor {
      public static void main(String[] args) {
 
         try {
-
-            ServerSocket servidor =
-                    new ServerSocket(5000);
+            ServerSocket servidor = new ServerSocket(5000);
 
             System.out.println("Servidor iniciado");
 
             while(true){
 
-                Socket cliente =
-                        servidor.accept();
+                Socket cliente = servidor.accept();
 
-                System.out.println(
-                        "Cliente conectado"
-                );
+                System.out.println("Cliente conectado");
 
-                HiloCliente hilo =
-                        new HiloCliente(cliente);
+                HiloCliente hilo = new HiloCliente(cliente);
 
                 hilo.start();
             }

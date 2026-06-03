@@ -9,18 +9,12 @@ public class Cliente {
     public static void main(String[] args) {
 
         try {
-
             Socket socket =
-                    new Socket(
-                            "localhost",
-                            5000
-                    );
+                    new Socket("localhost", 5000);
 
             PrintWriter salida =
                     new PrintWriter(
-                            socket.getOutputStream(),
-                            true
-                    );
+                            socket.getOutputStream(), true);
 
             BufferedReader entrada =
                     new BufferedReader(
@@ -29,18 +23,13 @@ public class Cliente {
                             )
                     );
 
-            salida.println(
-                    "Hola servidor"
-            );
+            salida.println("Hola servidor");
 
-            System.out.println(
-                    entrada.readLine()
-            );
+            System.out.println(entrada.readLine());
 
             socket.close();
 
         } catch(Exception e){
-
             e.printStackTrace();
         }
     }
