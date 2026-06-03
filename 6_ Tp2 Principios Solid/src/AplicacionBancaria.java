@@ -1,28 +1,50 @@
+import java.util.Scanner;
+
 public class AplicacionBancaria {
     public static void main(String[] args){
 
-        //Expandimos CuentaBancaria ya que corrompía el principio de abierto/cerrado
-        //abrimos la función retirar para que se pueda ampliar, pero no modificar,
-        //dividiendo la clase en CuentaCorriente y CajaAhorro, teniendo cada uno su manera de retirar
-        //la clase CuentaBancaria no se cambia, sino que se puede cambiar la lógica de cada tipo de cuenta
-        CuentaBancaria cuenta1 = new CuentaCorriente("Pepe", 20000, 1, 10000);
-        cuenta1.depositar(500);
-        cuenta1.retirar(200);
-
-        CuentaBancaria cuenta2 = new CajaAhorro("Juan", 20000, 2);
-        cuenta2.depositar(500);
-        cuenta2.retirar(200);
-
-        //Creamos la clase ImpresoraCuenta e InboxMail porque se rompía el principio de
-        //responsabilidad unica, a la cuenta bancaria no se le debe
-        //atribuir el funcionamiento de un sistema de impresion ni de envío de e-mails
-        ImpresoraCuenta impresora = new ImpresoraCuenta();
-        impresora.mostrarDatosCuenta(cuenta1);
-        impresora.mostrarDatosCuenta(cuenta2);
-
+        //Responsabilidad unica
         InboxMail inbox = new InboxMail();
-        inbox.enviarNotificacionPorMail(cuenta1, "Notificación enviada!");
-        inbox.enviarNotificacionPorMail(cuenta2, "Notificación enviada!");
+        ImpresoraCuenta impresora = new ImpresoraCuenta();
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("ingrese su nombre");
+        String nombre = sc.nextLine();
+        System.out.println("Ingrese su sueldo");
+        double sueldo = sc.nextDouble();
+        System.out.println("Ingrese su id");
+        int id = sc.nextInt();
+        System.out.println("Ingrese 1 para cuenta corriente, 2 para caja de ahorro"); //Abierto/cerrado
+        int tipo = sc.nextInt();
+
+        if (tipo == 1){
+            CuentaBancaria persona = new CuentaCorriente(nombre, sueldo, id, (sueldo*1.5));
+            System.out.println("Seleccione cuanto desea depositar");
+            double deposito = sc.nextDouble();
+            persona.depositar(deposito);
+            inbox.enviarNotificacionPorMail(persona, "Recibimos un deposito de $" +deposito+ " tu saldo ahora es de: $" +persona.getSaldo());
+
+            System.out.println("Ingrese cuanto desea retirar");
+            double retiro = sc.nextDouble();
+            persona.retirar(retiro);
+            inbox.enviarNotificacionPorMail(persona, "Recibimos un retiro de $" +retiro+ " tu saldo ahora es de: $" +persona.getSaldo());
+
+
+        } else if (tipo == 2){
+            CuentaBancaria persona = new CajaAhorro(nombre, sueldo, id);
+            System.out.println("Seleccione cuanto desea depositar");
+            double deposito = sc.nextDouble();
+            persona.depositar(deposito);
+            inbox.enviarNotificacionPorMail(persona, "Recibimos un deposito de $" +deposito+ " tu saldo ahora es de: $" +persona.getSaldo());
+
+
+            System.out.println("Ingrese cuanto desea retirar");
+            double retiro = sc.nextDouble();
+            persona.retirar(retiro);
+            inbox.enviarNotificacionPorMail(persona, "Recibimos un retiro de $" +retiro+ " tu saldo ahora es de: $" +persona.getSaldo());
+
+        }
 
     }
 }
